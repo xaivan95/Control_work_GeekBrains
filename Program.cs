@@ -8,16 +8,16 @@ namespace SelectStringArray
         {
             var arrayString = GetStringArray();
             var result =GetNewStringArray(arrayString);
-
+            PrintStringArray(result);
         }
 
         static string[] GetStringArray()
         {
             string[] array = new string[0];
             int i = 0;
+            Console.WriteLine("Введите новую строку для массива или пустую строку для выхода:");
             while (true)
             {
-                Console.WriteLine("Введите новую строку для массива или пустую строку для выхода:");
                 var s = Console.ReadLine();
                 if (s.Length == 0) return array;
                 Array.Resize<string>(ref array, i + 1);
@@ -41,7 +41,17 @@ namespace SelectStringArray
             return result;
         }
 
-
-
+        static void PrintStringArray(string[] array)
+        {
+            Console.WriteLine("Результат выполнения:");
+            var result = "[";
+            foreach (string s in array)
+            {
+                result += "\"" + s + "\",";
+            }
+            result = result.Remove(result.Length - 1);
+            result += "]";
+            Console.WriteLine(result);
+        }
     }
 }
