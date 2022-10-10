@@ -21,7 +21,7 @@ namespace SelectStringArray
                 var s = Console.ReadLine();
                 if (s.Length == 0) return array;
                 Array.Resize<string>(ref array, i + 1);
-                array[i] = Console.ReadLine();
+                array[i] = s;
                 i++;
             }
         }
